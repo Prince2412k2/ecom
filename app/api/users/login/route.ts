@@ -1,4 +1,3 @@
-
 import { NextRequest, NextResponse } from "next/server";
 import dbConnect from "@/lib/dbConnect";
 import { createToken } from "@/lib/jwt"
@@ -17,7 +16,17 @@ export async function POST(req: NextRequest) {
     const user = await validateUser({ password, email })
     if (!user) return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
     const token = createToken({ id: user._id, email: user.email });
-    return NextResponse.json({ token, user })
+    const res = NextResponse.json({ status: 200 })
+    res.cookies.set("token", token, {
+      httpOnly: true,
+      path: "/",
+      maxAge: 60 * 60,
+      sameSite: "lax",
+      secure: process.env.NODE_ENV === "production",
+    })
+
+
+    return res
   } catch (err: unknown) {
     console.error(err)
     return NextResponse.json({ error: "server error" }, { status: 500 });

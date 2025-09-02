@@ -4,7 +4,7 @@ import UserRequest from "./schema";
 import z from "zod";
 import connect from "@/lib/dbConnect"
 import { hashPassword } from "@/lib/password";
-
+import { createToken } from "@/lib/jwt"
 
 export async function POST(req: NextRequest) {
   try {
@@ -17,9 +17,20 @@ export async function POST(req: NextRequest) {
     parsed.password = await hashPassword(parsed.password)
 
     const newUser = await User.create(parsed)
-    console.log(newUser)
-    return NextResponse.json({ user: newUser }, { status: 201 })
-  } catch (err: unknown) {
+
+    const token = createToken({ id: String(newUser._id), email: newUser.email });
+    const res = NextResponse.json({ status: 201 })
+    res.cookies.set("token", token, {
+      httpOnly: true,
+      path: "/",
+      maxAge: 60 * 60,
+      sameSite: "lax",
+      secure: process.env.NODE_ENV === "production",
+    })
+
+    return res;
+
+  } catch (err: any) {
     if (err instanceof z.ZodError) {
       return NextResponse.json({ error: err.errors }, { status: 400 })
     }

@@ -1,27 +1,14 @@
 import mongoose, { Schema, Document, Types } from "mongoose";
-
-type CartItemType = {
-  product: Types.ObjectId; // ref to Product
-  quantity: number;
-  addedAt: Date;
-  purchased: boolean;
-};
-const CartSchema = new Schema<CartItemType>({
-  product: { type: Schema.Types.ObjectId, ref: "Product", required: true },
-  quantity: { type: Number, default: 1 },
-  addedAt: { type: Date, default: () => new Date() },
-  purchased: { type: Boolean, default: false },
-});
+import { CartItemType, CartSchema } from "./cartSchema";
 
 export type UserType = {
   name: string;
   password: string;
   email: string;
-
 }
 
 export type DbUserType = Document & UserType & {
-  cart: typeof CartSchema[];
+  cart: Types.DocumentArray<CartItemType>;
   addresses: string[];
   isDeleted: boolean;
   userType: string;

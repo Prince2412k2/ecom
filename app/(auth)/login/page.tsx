@@ -1,10 +1,28 @@
 "use client";
 
+import axios from "axios";
 import Image from "next/image";
-
-
+import { FormEvent, useRef } from "react";
 
 export default function Example() {
+  const formRef = useRef<HTMLFormElement>(null);
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    const form = formRef.current;
+    if (!form) return;
+
+    const data = {
+      email: form.email.value,
+      password: form.password.value,
+    }
+    try {
+      const response = await axios.post("/api/users/login", data);
+      form.reset();
+    } catch (err) {
+      console.error("Error Submitting Form", err);
+    }
+  };
+
   return (
     <>
       <div className="flex min-h-full flex-col align-middle justify-center px-6 py-12 lg:px-8 ">
@@ -14,7 +32,7 @@ export default function Example() {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form action="#" method="POST" className="space-y-6">
+          <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label htmlFor="email" className="block text-sm/6 font-medium text-gray-100">
                 Email address
@@ -37,9 +55,6 @@ export default function Example() {
                   Password
                 </label>
                 <div className="text-sm">
-                  <a href="#" className="font-semibold text-indigo-400 hover:text-indigo-300">
-                    Forgot password?
-                  </a>
                 </div>
               </div>
               <div className="mt-2">
@@ -66,8 +81,8 @@ export default function Example() {
 
           <p className="mt-10 text-center text-sm/6 text-gray-400">
             Not a member?{' '}
-            <a href="#" className="font-semibold text-indigo-400 hover:text-indigo-300">
-              Start a 14 day free trial
+            <a href="/signup" className="font-semibold text-indigo-400 hover:text-indigo-300">
+              Register Now
             </a>
           </p>
         </div>

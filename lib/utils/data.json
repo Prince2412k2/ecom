@@ -42,6 +42,7 @@
     "discount": 11
   },
   {
+    "title": "Urbanista Seattle Bluetooth Headphones",
     "image": "https://storage.googleapis.com/fir-auth-1c3bc.appspot.com/1691056487173-headphon2.jpg",
     "price": 265,
     "brand": "urbanista",
@@ -80,6 +81,7 @@
     "onSale": true
   },
   {
+    "title": "Razer Wolverine V2 Pro Wireless Gaming Controller for PlayStation 5/PC",
     "image": "https://storage.googleapis.com/fir-auth-1c3bc.appspot.com/1694100438525-51Prg4Smx-L._SL1500_.jpg",
     "price": 18,
     "brand": "Amkette",
@@ -219,6 +221,7 @@
     "discount": 9
   },
   {
+    "title": "EgoGear Manette Sans Fil Bluetooth SC15 Noire",
     "image": "https://storage.googleapis.com/fir-auth-1c3bc.appspot.com/1692255692675-ant sport.jpg",
     "price": 14,
     "brand": "ant esports",
@@ -375,6 +378,7 @@
     "discount": 29
   },
   {
+    "title": "Marshall Acton II Bluetooth Speaker",
     "image": "https://storage.googleapis.com/fir-auth-1c3bc.appspot.com/1692946110280-81WIcjaGp2L._SL1500_.jpg",
     "price": 266,
     "brand": "Marshall",
@@ -476,6 +480,7 @@
     "discount": 9
   },
   {
+    "title": "Xiaomi X Series 50 inch 4K Ultra HD Smart TV",
     "image": "https://storage.googleapis.com/fir-auth-1c3bc.appspot.com/1694155239807-81UT46-gwRL._SL1500_.jpg",
     "price": 384,
     "brand": "mi",
