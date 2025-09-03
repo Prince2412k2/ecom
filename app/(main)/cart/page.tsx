@@ -2,15 +2,19 @@
 import { cookies } from "next/headers"
 import Card from "./card"
 import { redirect } from "next/navigation";
-import { getUserWithCart } from "@/lib/cart/getCart";
+import { getCartWithToken } from "@/lib/cart/getCart";
 
 export default async function page() {
   const cookieStore = await cookies();
   const token = cookieStore.get("token")?.value
-  const cart = token ? await getUserWithCart(token) : null;
+  const cart = token ? await getCartWithToken(token) : null;
+
   if (!cart) {
     redirect("/login")
   }
+  console.log("----------------------------------------")
+  console.log(cart)
+  console.log("----------------------------------------")
   return (
     <div className="h-screen bg-gray-100 pt-20">
       <h1 className="mb-10 text-center text-2xl font-bold">Cart Items</h1>

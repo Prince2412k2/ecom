@@ -7,7 +7,8 @@
     "model": "WH-1000XM3",
     "color": "silver",
     "category": "audio",
-    "discount": 11
+    "discount": 11,
+    "quantity": 5
   },
   {
     "title": "Microsoft Xbox X/S Wireless Controller Robot White",
@@ -17,7 +18,8 @@
     "model": "Xbox X/S",
     "color": "white",
     "category": "gaming",
-    "discount": 4
+    "discount": 4,
+    "quantity": 7
   },
   {
     "title": "Logitech G733 Lightspeed Wireless Gaming Headset with Suspension Headband, LIGHTSYNC RGB, Blue VO!CE mic Technology and PRO-G Audio Drivers - White",
@@ -28,7 +30,8 @@
     "model": "G733 LIGHTSPEED",
     "color": "white",
     "category": "gaming",
-    "discount": 3
+    "discount": 3,
+    "quantity": 9
   },
   {
     "title": "Sony WH-1000XM5 Wireless Industry Leading Active Noise Cancelling Headphones, 8 Mics for Clear Calling, 30Hr Battery, 3 Min Quick Charge = 3 Hours Playback, Multi Point Connectivity, Alexa-Silver",
@@ -39,7 +42,8 @@
     "model": "WH1000XM5/SMIN",
     "color": "white",
     "category": "audio",
-    "discount": 11
+    "discount": 11,
+    "quantity": 10
   },
   {
     "title": "Urbanista Seattle Bluetooth Headphones",
@@ -49,7 +53,8 @@
     "model": "Los Angeles",
     "color": "sand gold",
     "category": "audio",
-    "discount": 19
+    "discount": 19,
+    "quantity": 12
   },
   {
     "title": "Xiaomi Wired in-Ear Earphones with Mic, Ultra Deep Bass & Metal Sound Chamber (Blue)",
@@ -58,7 +63,8 @@
     "brand": "xiaomi",
     "model": "Mi Earphones Basic Blue",
     "color": "Blue",
-    "category": "audio"
+    "category": "audio",
+    "quantity": 27
   },
   {
     "title": "boAt Rockerz 370 On Ear Bluetooth Headphones with Upto 12 Hours Playtime, Cozy Padded Earcups and Bluetooth v5.0, with Mic (Buoyant Black)",
@@ -67,7 +73,8 @@
     "brand": "boat",
     "model": "Rockerz 370",
     "color": "Black",
-    "category": "audio"
+    "category": "audio",
+    "quantity": 44
   },
   {
     "title": "Samsung Galaxy S21 FE 5G (Lavender, 8GB, 128GB Storage)",
@@ -78,7 +85,8 @@
     "color": "Lavender",
     "category": "mobile",
     "discount": 9,
-    "onSale": true
+    "onSale": true,
+    "quantity": 23
   },
   {
     "title": "Razer Wolverine V2 Pro Wireless Gaming Controller for PlayStation 5/PC",
@@ -88,7 +96,8 @@
     "model": "Woburn II Bluetooth",
     "color": "gray",
     "category": "gaming",
-    "discount": 3
+    "discount": 3,
+    "quantity": 12
   },
   {
     "title": "Samsung Galaxy S22 5G (Phantom White, 8GB RAM, 128GB Storage) with No Cost EMI/Additional Exchange Offers",
@@ -99,7 +108,8 @@
     "model": "Samsung Galaxy S22 5G",
     "color": "White",
     "category": "mobile",
-    "discount": 29
+    "discount": 29,
+    "quantity": 3
   },
   {
     "title": "Samsung Galaxy S22 Ultra 5G (Burgundy, 12GB, 256GB Storage) ",
@@ -110,7 +120,8 @@
     "color": "Burgundy",
     "category": "mobile",
     "discount": 29,
-    "onSale": true
+    "onSale": true,
+    "quantity": 6
   },
   {
     "title": "Poco by Xiaomi F1 Steel Blue, 6GB RAM, 64GB Storage",
@@ -120,7 +131,8 @@
     "brand": "xiaomi",
     "model": "Poco F1",
     "color": "steel blue",
-    "category": "mobile"
+    "category": "mobile",
+    "quantity": 9
   },
   {
     "title": "Samsung Galaxy M14 5G (Smoky Teal, 6GB, 128GB Storage)",
@@ -130,7 +142,8 @@
     "model": "Samsung Galaxy M14 5G",
     "color": "Smoky Teal",
     "category": "mobile",
-    "discount": 11
+    "discount": 11,
+    "quantity": 18
   },
   {
     "title": "Apple iPhone 14 (128 GB) - Blue",
@@ -140,7 +153,8 @@
     "model": "iPhone 14",
     "color": "Blue",
     "category": "mobile",
-    "discount": 9
+    "discount": 9,
+    "quantity": 15
   },
   {
     "title": "Apple iPhone 14 Pro Max (256 GB) - Deep Purple",
@@ -149,7 +163,8 @@
     "brand": "apple",
     "model": "iPhone 14 Pro Max",
     "color": "Deep Purple",
-    "category": "mobile"
+    "category": "mobile",
+    "quantity": 45
   },
   {
     "title": "Apple iPhone 14 Pro (256 GB) - Gold",
@@ -158,7 +173,8 @@
     "brand": "apple",
     "model": "iPhone 14 Pro",
     "color": "Golden",
-    "category": "mobile"
+    "category": "mobile",
+    "quantity": 56
   },
   {
     "title": "Apple iPhone 12 (256GB) - Green",
@@ -167,7 +183,8 @@
     "brand": "apple",
     "model": "iPhone 12 256GB Green",
     "color": "Green",
-    "category": "mobile"
+    "category": "mobile",
+    "quantity": 56
   },
   {
     "title": "Xiaomi 12 Pro | 5G (Noir Black, 8GB RAM, 256GB Storage) | Snapdragon 8 Gen 1 | 50+50+50MP Flagship Cameras (OIS) | 10bit 2K+ Curved AMOLED Display",
@@ -178,7 +195,8 @@
     "color": "Noir Black",
     "category": "mobile",
     "discount": 17,
-    "onSale": true
+    "onSale": true,
+    "quantity": 56
   },
   {
     "title": " Xiaomi 11T Pro 5G Hyperphone (Meteorite Black, 8GB RAM, 256GB Storage) |SD 888|120W HyperCharge|Segment's only Phone with Dolby Vision+Dolby Atmos",
@@ -188,7 +206,8 @@
     "model": "11T Pro",
     "color": "Meteorite Black",
     "category": "mobile",
-    "discount": 7
+    "discount": 7,
+    "quantity": 12
   },
   {
     "title": "Samsung Galaxy M13 (Aqua Green, 6GB, 128GB Storage)",
@@ -198,7 +217,8 @@
     "model": "Samsung Galaxy M13",
     "color": "Aqua Green",
     "category": "mobile",
-    "discount": 9
+    "discount": 9,
+    "quantity": 34
   },
   {
     "title": "Redmi Note 12 5G Matte Black 6GB RAM 128GB ROM | 1st Phone with 120Hz Super AMOLED and Snapdragonr 4 Gen 1 | 48MP AI Triple Camera",
@@ -207,7 +227,8 @@
     "brand": "xiaomi",
     "model": "Redmi Note 12 5G",
     "color": "Matte Black",
-    "category": "mobile"
+    "category": "mobile",
+    "quantity": 32
   },
   {
     "title": "Sennheiser HD 400s Wired Over The Ear Headphone with Mic (Black)",
@@ -218,7 +239,8 @@
     "model": "HD 400s",
     "color": "Black",
     "category": "audio",
-    "discount": 9
+    "discount": 9,
+    "quantity": 67
   },
   {
     "title": "EgoGear Manette Sans Fil Bluetooth SC15 Noire",
@@ -229,7 +251,8 @@
     "color": "black",
     "category": "gaming",
     "discount": 3,
-    "onSale": true
+    "onSale": true,
+    "quantity": 79
   },
   {
     "title": "Logitech G502 Lightspeed Wireless Gaming Mouse, 25K Hero Gaming Sensor, 25600 DPI, RGB, Ultra-Light, 11 Programmable Buttons, Long Life Battery, PowerPlay-Compatible, PC - Black",
@@ -240,7 +263,8 @@
     "model": "Logitech G502",
     "color": "black",
     "category": "gaming",
-    "discount": 3
+    "discount": 3,
+    "quantity": 67
   },
   {
     "title": "Samsung Galaxy S23 5G (Green, 8GB, 128GB Storage)",
@@ -251,7 +275,8 @@
     "color": "Green",
     "category": "mobile",
     "discount": 21,
-    "onSale": true
+    "onSale": true,
+    "quantity": 78
   },
   {
     "title": "Handheld Game Console 5.1 inch Pro Retro Games Consoles Built-in Classic Games Rechargeable Battery Portable Style Game Consoles X12",
@@ -260,7 +285,8 @@
     "brand": "CredevZone",
     "model": "X12 Red&blue",
     "category": "gaming",
-    "discount": 9
+    "discount": 9,
+    "quantity": 67
   },
   {
     "title": "Sony PS5 PlayStation Console+God Of War Ragnarok | Standard Edition | PS5 Game (PlayStation 5)",
@@ -269,7 +295,8 @@
     "brand": "sony",
     "model": "ps5",
     "category": "gaming",
-    "discount": 11
+    "discount": 11,
+    "quantity": 35
   },
   {
     "title": "Apple AirPods (3rd Generation) with Lightning Charging Case ???????",
@@ -279,7 +306,8 @@
     "brand": "apple",
     "model": "AirPods 3rd Generation",
     "color": "White",
-    "category": "audio"
+    "category": "audio",
+    "quantity": 23
   },
   {
     "title": "Sony WH-CH520, Wireless On-Ear Bluetooth Headphones with Mic, Upto 50 Hours Playtime, DSEE Upscale, Multipoint Connectivity/Dual Pairing,Voice Assistant App Support for Mobile Phones (Blue)",
@@ -290,7 +318,8 @@
     "model": "WH-CH520",
     "color": "blue",
     "category": "audio",
-    "discount": 3
+    "discount": 3,
+    "quantity": 34
   },
   {
     "title": "Sony Srs-Xb13 Wireless Extra Bass Portable Compact Bluetooth Speaker with 16 Hours Battery Life, Type-C, Ip67 Waterproof, Dustproof, with Mic, Loud Audio for Phone Calls/Work from Home (Black), Small",
@@ -301,7 +330,8 @@
     "color": "black",
     "category": "audio",
     "onSale": true,
-    "discount": 3
+    "discount": 3,
+    "quantity": 45
   },
   {
     "title": "Panasonic RB-M300B Deep Bass Wireless Bluetooth Immersive Headphones with XBS DEEP and Bass Augmentation (Sand Beige), RB-M300B-C",
@@ -311,7 +341,8 @@
     "model": "Panasonic Deep Bass Wireless Bluetooth Immersive",
     "color": "White",
     "category": "audio",
-    "discount": 15
+    "discount": 15,
+    "quantity": 45
   },
   {
     "title": "Sony WH-CH520, Wireless On-Ear Bluetooth Headphones with Mic, Upto 50 Hours Playtime, DSEE Upscale, Multipoint Connectivity/Dual Pairing,Voice Assistant App Support for Mobile Phones (Beige)",
@@ -322,7 +353,8 @@
     "model": "WH-CH520",
     "color": "Taupe",
     "category": "audio",
-    "discount": 3
+    "discount": 3,
+    "quantity": 13
   },
   {
     "title": "boAt Stone 180 5W Bluetooth Speaker with Upto 10 Hours Playback, 1.75\" Driver, IPX7 & TWS Feature(Black)",
@@ -333,7 +365,8 @@
     "model": "Stone 180",
     "color": "black",
     "category": "audio",
-    "discount": 2
+    "discount": 2,
+    "quantity": 45
   },
   {
     "title": "Mivi Play Bluetooth Speaker with 12 Hours Playtime. Wireless Speaker Made in India with Exceptional Sound Quality, Portable and Built in Mic-Black",
@@ -343,7 +376,8 @@
     "model": "Play",
     "color": "black",
     "category": "audio",
-    "discount": 3
+    "discount": 3,
+    "quantity": 54
   },
   {
     "title": " JBL Go 2, Wireless Portable Bluetooth Speaker with Mic, JBL Signature Sound, Vibrant Color Options with IPX7 Waterproof & AUX (Blue)",
@@ -354,7 +388,8 @@
     "color": "blue",
     "category": "audio",
     "discount": 4,
-    "onSale": true
+    "onSale": true,
+    "quantity": 123
   },
   {
     "title": "Mivi Duopods A25 Bluetooth Truly Wireless in Ear Earbuds with Mic with 40Hours Battery, 13Mm Bass Drivers & Made in India. with Immersive Sound Quality, Voice Assistant, Touch Control (White)",
@@ -365,7 +400,8 @@
     "model": "Duopods A25",
     "color": "white",
     "category": "audio",
-    "discount": 6
+    "discount": 6,
+    "quantity": 548
   },
   {
     "title": "soundcore by Anker Space Q45 Adaptive Noise Cancelling Headphones, Reduce Noise by Up to 98%, Ultra Long 50H Playtime, App Customization, Hi-Res Sound with Details, Bluetooth 5.3",
@@ -375,7 +411,8 @@
     "model": "Space Q45",
     "color": "Blue",
     "category": "audio",
-    "discount": 29
+    "discount": 29,
+    "quantity": 13
   },
   {
     "title": "Marshall Acton II Bluetooth Speaker",
@@ -385,7 +422,8 @@
     "color": "White",
     "category": "audio",
     "discount": 9,
-    "onSale": true
+    "onSale": true,
+    "quantity": 34
   },
   {
     "title": " Bang & Olufsen Beosound Balance Wireless Multiroom Speaker, Natural Oak",
@@ -394,7 +432,8 @@
     "brand": "Bang & Olufsen",
     "model": "Beosound Balance",
     "category": "audio",
-    "discount": 21
+    "discount": 21,
+    "quantity": 136
   },
   {
     "title": "JBL Tune 720BT Wireless Over Ear Headphones with Mic, Pure Bass Sound, Upto 76 Hrs Playtime, Speedcharge, Dual Pairing, Customizable Bass with Headphones App, Lightweight, Bluetooth 5.3 (Blue)",
@@ -404,7 +443,8 @@
     "model": "Tune 720BT",
     "color": "Blue",
     "category": "audio",
-    "discount": 9
+    "discount": 9,
+    "quantity": 12
   },
   {
     "title": " Sony SA-SW5 300W Wireless Subwoofer for HT-A9 and HT-A7000 - Black",
@@ -414,7 +454,8 @@
     "model": "SA-SW5",
     "color": "black",
     "category": "audio",
-    "discount": 9
+    "discount": 9,
+    "quantity": 56
   },
   {
     "title": " DENON Home 350 Wireless Speaker - Powerful Room Filling Sound with Bluetooth, AirPlay 2 and Alexa Built-in - White",
@@ -425,7 +466,8 @@
     "model": "DENON HOME 350",
     "color": "white",
     "category": "audio",
-    "discount": 9
+    "discount": 9,
+    "quantity": 45
   },
   {
     "title": "JBL Wave 200 Wireless Earbuds (TWS) with Mic, 20 Hours Playtime, Deep Bass Sound, Dual Connect Technology, Quick Charge, Comfort Fit Ergonomic Design, Voice Assistant Support for Mobiles (Black)",
@@ -434,7 +476,8 @@
     "brand": "jbl",
     "model": "JBL",
     "color": "Black",
-    "category": "audio"
+    "category": "audio",
+    "quantity": 76
   },
   {
     "title": "Sony WF-C700N Bluetooth Truly Wireless Lightest Active Noise Cancellation in Ear Earbuds, Multipoint Connection, 10 mins Super Quick Charge, 20hrs Batt, IPX4 Ratings, Fast Pair, App Support-Black",
@@ -445,7 +488,8 @@
     "model": "WF-C700N",
     "color": "black",
     "category": "audio",
-    "discount": 9
+    "discount": 9,
+    "quantity": 56
   },
   {
     "title": "New Apple AirPods Max - Pink",
@@ -456,7 +500,8 @@
     "color": "Pink",
     "category": "audio",
     "onSale": true,
-    "discount": 9
+    "discount": 9,
+    "quantity": 67
   },
   {
     "title": "Redmi 80 cm (32 inches) HD Ready Smart LED Fire TV L32R8-FVIN (Black)",
@@ -467,7 +512,8 @@
     "color": "black",
     "category": "tv",
     "onSale": true,
-    "discount": 7
+    "discount": 7,
+    "quantity": 56
   },
   {
     "title": "Samsung 108 cm (43 inches) Crystal iSmart 4K Ultra HD Smart LED TV UA43CUE60AKLXL (Black)",
@@ -477,7 +523,8 @@
     "model": "UA43CUE60AKLXL",
     "color": "black",
     "category": "tv",
-    "discount": 9
+    "discount": 9,
+    "quantity": 45
   },
   {
     "title": "Xiaomi X Series 50 inch 4K Ultra HD Smart TV",
@@ -487,7 +534,8 @@
     "model": "Xiaomi TV X50",
     "color": "black",
     "category": "tv",
-    "discount": 11
+    "discount": 11,
+    "quantity": 44
   },
   {
     "title": " Acer 126 cm (50 inches) V Series 4K Ultra HD Smart QLED Google TV AR50GR2851VQD (Black)",
@@ -497,7 +545,8 @@
     "model": "AR50GR2851VQD",
     "color": "black",
     "category": "tv",
-    "discount": 5
+    "discount": 5,
+    "quantity": 26
   },
   {
     "title": "LG 139 cm (55 inches) 4K Ultra HD Smart OLED TV 55BXPTA (Dark Steel Silver)",
@@ -508,6 +557,7 @@
     "model": "OLED55BXPTA",
     "color": "dark steel silver",
     "category": "tv",
-    "discount": 9
+    "discount": 12,
+    "quantity": 26
   }
 ]

@@ -6,6 +6,7 @@ export type ProductType = {
   price: number;
   brand: string;
   category: string;
+  quantity: number;
 
   // optional fields
   model: string;
@@ -23,6 +24,7 @@ const ProductSchema = new Schema<ProductType>({
   price: { type: Number, required: true },
   brand: { type: String, required: true },
   category: { type: String, required: true },
+  quantity: { type: Number, required: true },
 
   // optional fields
   model: { type: String, default: "" },

@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { Types, ObjectId, Schema } from "mongoose";
 import dotenv from "dotenv";
 import { readFileSync } from 'fs';
 
@@ -13,6 +13,7 @@ export type ProductType = {
   price: number;
   brand: string;
   category: string;
+  quantity: number;
 
   // optional fields
   model: string;
@@ -21,13 +22,16 @@ export type ProductType = {
   discount: number;
 };
 
+export type ProductResponseType = ProductType & { _id: Types.ObjectId };
 
-const ProductSchema = new mongoose.Schema<ProductType>({
+
+const ProductSchema = new Schema<ProductType>({
   title: { type: String, required: true },
   image: { type: String, required: true },
   price: { type: Number, required: true },
   brand: { type: String, required: true },
   category: { type: String, required: true },
+  quantity: { type: Number, required: true },
 
   // optional fields
   model: { type: String, default: "" },
@@ -45,18 +49,17 @@ const Product = mongoose.models.Product || mongoose.model<ProductType>("Product"
 
 
 const products: ProductType[] = JSON.parse(rawData);
-products = products.map((obj) =>)
 
-  // 4. Insert into MongoDB
-  (async () => {
-    try {
-      await Product.insertMany(products);
-      console.log("? Data inserted successfully");
-    } catch (err) {
-      console.error("? Error inserting data:", err);
-    } finally {
-      await mongoose.connection.close();
-    }
-  })();
+// 4. Insert into MongoDB
+(async () => {
+  try {
+    await Product.insertMany(products);
+    console.log("? Data inserted successfully");
+  } catch (err) {
+    console.error("? Error inserting data:", err);
+  } finally {
+    await mongoose.connection.close();
+  }
+})();
 
 

@@ -5,6 +5,7 @@ import z from "zod";
 import connect from "@/lib/dbConnect"
 import { hashPassword } from "@/lib/password";
 import { createToken } from "@/lib/jwt"
+import { ZodError } from "zod/v3";
 
 export async function POST(req: NextRequest) {
   try {
@@ -30,8 +31,8 @@ export async function POST(req: NextRequest) {
 
     return res;
 
-  } catch (err: any) {
-    if (err instanceof z.ZodError) {
+  } catch (err) {
+    if (err instanceof ZodError) {
       return NextResponse.json({ error: err.errors }, { status: 400 })
     }
     if (err.code === 11000) {
