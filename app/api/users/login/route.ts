@@ -24,8 +24,6 @@ export async function POST(req: NextRequest) {
       sameSite: "lax",
       secure: process.env.NODE_ENV === "production",
     })
-
-
     return res
   } catch (err: unknown) {
     console.error(err)

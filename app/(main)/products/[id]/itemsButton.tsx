@@ -1,16 +1,30 @@
 "use client";
 
+
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { addToCart } from "@/lib/client/addCartClient"
+
 
 export default function ItemsButton({ _id, defaultItems = 1, max = Infinity }: { _id: string, defaultItems: number, max: number }) {
   const [items, setItems] = useState<number>(defaultItems);
-  const [loggedIn, setLoggedIn] = useState(false)
+  const [loggedIn, setLoggedIn] = useState(true)
+  const [isSubmited, setIsSubmitted] = useState(false)
+  const router = useRouter();
+
+  const handleAddToCart = () => {
+    setIsSubmitted(true)
+    return loggedIn ? addToCart(_id, items) : router.push("/login")
+  }
+
+
   useEffect(() => {
     async function checkLogin() {
       try {
         // Replace with your actual API endpoint
-        const res = await fetch("/api/check")
+        const res = await fetch("/api/users/check")
         const data = await res.json()
+        console.log(data, "bduishiuhioudeo")
 
         if (data.loggedIn) {
           setLoggedIn(true)
@@ -47,12 +61,11 @@ export default function ItemsButton({ _id, defaultItems = 1, max = Infinity }: {
         </button>
       </div>
       <button
-        disabled={!loggedIn}
-        onClick={() => { }}
+        onClick={() => handleAddToCart()}
         type="button"
         className="flex-1 rounded-lg bg-blue-600 px-8 py-3 text-base font-semibold text-white shadow-lg shadow-blue-500/50 transition-all duration-200 hover:scale-105 hover:bg-blue-700 hover:shadow-2xl hover:shadow-blue-500/80 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
       >
-        {loggedIn ? "Add to Cart" : "login"}
+        {loggedIn ? (isSubmited ? "Update" : "Add to Cart") : "login"}
       </button>
     </div>
   );

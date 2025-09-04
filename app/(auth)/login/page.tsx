@@ -18,6 +18,7 @@ export default function Example() {
     try {
       const response = await axios.post("/api/users/login", data);
       form.reset();
+      window.history.back()
     } catch (err) {
       console.error("Error Submitting Form", err);
     }
