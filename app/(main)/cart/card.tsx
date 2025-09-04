@@ -12,11 +12,12 @@ export default async function Card({ item }: CardProp) {
       <Image width={500} height={500} src={item.product.image} alt={`${item.product.title}-product-image`} className="w-full rounded-lg sm:w-40" />
       <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
         <div className="mt-5 sm:mt-0">
-          <h2 className="text-lg font-bold text-gray-900">{item.product.title}</h2>
+          <h2 className="text-lg font-bold text-gray-900">{`${(item.product.title).split(" ").slice(0, 4).join(" ")}...`}</h2>
+
           <p className="mt-1 text-xs text-gray-700">{item.product.category}</p>
         </div>
         <div className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
-          <AddMoreButton price={item.product.price} defaultItems={item.quantity} max={5} />
+          <AddMoreButton id={item.product._id.toString()} price={item.product.price} defaultItems={item.quantity} max={item.product.quantity} />
         </div>
       </div>
     </div>
