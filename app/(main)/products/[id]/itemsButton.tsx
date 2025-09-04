@@ -24,7 +24,6 @@ export default function ItemsButton({ _id, defaultItems = 1, max = Infinity }: {
         // Replace with your actual API endpoint
         const res = await fetch("/api/users/check")
         const data = await res.json()
-        console.log(data, "bduishiuhioudeo")
 
         if (data.loggedIn) {
           setLoggedIn(true)

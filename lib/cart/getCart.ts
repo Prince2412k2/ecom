@@ -15,7 +15,12 @@ export async function getUserWithToken(token: string): Promise<DbUserType | null
   if (!user) return null;
   return user;
 }
-
+export async function getUserWithId(id: string): Promise<DbUserType | null> {
+  await dbConnect();
+  const user = await User.findById(id)
+  if (!user) return null;
+  return user;
+}
 
 
 

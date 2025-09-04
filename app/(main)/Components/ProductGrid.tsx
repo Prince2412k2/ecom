@@ -4,7 +4,6 @@ import Link from "next/link"
 
 const ProductGrid = async ({ category = "all" }: { category: string }) => {
   const products = await getProducts(1, category)
-  console.log(category)
   if (!products) return <div>Error</div>
   return (
     <div className="bg-white">

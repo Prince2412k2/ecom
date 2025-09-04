@@ -4,7 +4,6 @@ import Link from "next/link";
 
 export default async function ProductsLayout({ children }: { children: React.ReactNode }) {
   const categories = await getCategories()
-  console.log(categories)
   if (!categories) { return <div className="overscroll-none">Error</div> }
   return (
     <section>

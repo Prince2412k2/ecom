@@ -13,5 +13,5 @@ export function middleware(req: NextRequest) {
   }
 }
 export const config = {
-  matcher: ["/cart"], // protect all dashboard routes
+  matcher: ["/cart", "/users/payemnt"], // protect all dashboard routes
 };

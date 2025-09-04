@@ -54,7 +54,6 @@ const products: ProductType[] = JSON.parse(rawData);
 (async () => {
   try {
     await Product.insertMany(products);
-    console.log("? Data inserted successfully");
   } catch (err) {
     console.error("? Error inserting data:", err);
   } finally {

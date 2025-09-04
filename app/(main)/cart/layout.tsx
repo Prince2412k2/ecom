@@ -1,9 +1,7 @@
-import { Navbar } from "./Components/Navbar"
 
 export default async function ProductsLayout({ children }: { children: React.ReactNode }) {
   return (
-    <section>
-      <Navbar />
+    <section className="bg-white ">
       {children}
     </section>
   )
