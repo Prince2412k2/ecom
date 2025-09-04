@@ -7,4 +7,5 @@ const AddCartRequest = z.object({
   quantity: z.number(),
 })
 
+
 export default AddCartRequest;

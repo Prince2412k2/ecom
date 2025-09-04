@@ -26,10 +26,9 @@ export async function getCartWithToken(
   const id = verifyToken(token);
   if (!id) return null;
 
-  const user = await User.findById(id)
-    .populate("cart.product").lean() // populates each cart item's product
-
+  const user = await User.findById(id).populate("cart.product") // populates each cart item's product
   if (!user) return null;
+  const cart = user.cart
 
-  return user.cart as CartResponseType[];
+  return cart as unknown as CartResponseType[];
 }

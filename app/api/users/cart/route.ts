@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getUserWithToken } from "@/lib/cart/getCart"
+import { getCartWithToken, getUserWithToken } from "@/lib/cart/getCart"
 import AddToCart from '@/lib/cart/addProductToCart';
 import AddCartRequest from './schema';
 import { ZodError } from 'zod/v3';
@@ -8,8 +8,8 @@ import { ZodError } from 'zod/v3';
 export async function GET(req: NextRequest) {
   const token = req.cookies.get("token")?.value
   if (!token) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  const cart = getUserWithToken(token)
-  if (!cart) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  const cart = await getCartWithToken(token)
+  if (!cart) return NextResponse.json({ error: 'Access Not Allowed' }, { status: 401 });
   return NextResponse.json(cart, { status: 200 });
 }
 
