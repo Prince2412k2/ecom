@@ -1,22 +1,20 @@
-
-
 import { NextRequest, NextResponse } from "next/server";
-import { verifyToken } from "./jwt";
+import { verifyToken } from "@/lib/jwt"; // path to your helper
 
 export function middleware(req: NextRequest) {
-  const pathname = req.nextUrl.pathname;
-  const token = req.headers.get("Authorization")?.split(" ")[1];
+  const { pathname, search } = req.nextUrl;
 
-  // Prepare login URL with "from" query param
+  const token = req.cookies.get("token")?.value;
+
   const loginUrl = new URL("/login", req.url);
-  loginUrl.searchParams.set("from", pathname);
+  loginUrl.searchParams.set("from", pathname + search);
 
-  if (!token) {
-    return NextResponse.redirect(loginUrl);
-  }
+  if (!token) return NextResponse.redirect(loginUrl);
 
   try {
+    // use your helper to verify token and get user ID
     verifyToken(token);
+    // optionally attach userId to request headers if needed
     return NextResponse.next();
   } catch {
     return NextResponse.redirect(loginUrl);
@@ -24,6 +22,5 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/cart", "/users/payemnt"], // protect specific routes
+  matcher: ["/users/payment", "/profile", "/cart"], // protected routes
 };
-

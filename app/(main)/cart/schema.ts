@@ -18,7 +18,8 @@ const CartResponse = z.array(
       discount: z.number().optional(),
     }),
     quantity: z.number(),
-    addedAt: z.date(),
+    addedAt: z.union([z.string(), z.date()]),
+
     purchased: z.boolean(),
   })
 );

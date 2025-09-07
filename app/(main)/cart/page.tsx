@@ -27,18 +27,19 @@ export default function Page() {
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const res = await axios.get("/api/users/cart");
-
-
-        const cartResp = res.data; // no need for await
+        const res = await axios.get("/api/users/cart", { withCredentials: true });
+        const cartResp = res.data;
         let cartData = CartResponse.parse(cartResp)
         cartData = cartData.filter((item) => !item.purchased);
         setCart(cartData);
-      } catch {
-        router.push(`/login?from=/cart`);
+      } catch (err) {
+        if (axios.isAxiosError(err) && err.response?.status === 401) {
+          router.push(`/login?from=/cart`);
+        } else {
+          console.error(err);
+        }
       }
     };
-
     fetchCart();
   }, []);
 
