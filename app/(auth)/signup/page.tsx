@@ -1,6 +1,6 @@
 "use client";
 
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import Image from "next/image";
 import { FormEvent, useRef, useState } from "react";
 
@@ -37,11 +37,13 @@ export default function SignUp() {
         // optionally redirect after a delay
         // router.push("/dashboard");
       }
-    } catch (err: any) {
-      if (err.response) {
-        setError(err.response.data.error || "Something went wrong");
-      } else {
-        setError("Network error");
+    } catch (err: unknown) {
+      if (err instanceof AxiosError) {
+        if (err.response) {
+          setError(err.response.data.error || "Something went wrong");
+        } else {
+          setError("Network error");
+        }
       }
     } finally {
       setLoading(false);
@@ -49,7 +51,7 @@ export default function SignUp() {
   };
 
   return (
-    <div className="flex min-h-full flex-col align-middle justify-center lg:px-8">
+    <div className="flex bg-gray-950 h-screen flex-col align-middle pb-60 justify-center lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <Image
           src="/shopping-cart.png"

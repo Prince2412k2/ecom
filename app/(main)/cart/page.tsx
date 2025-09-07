@@ -1,14 +1,15 @@
 "use client";
 import { useEffect, useState } from "react";
 import Card from "./card";
-import type { CartResponseType } from "@/models/cartSchema";
+import { type CartClientResponseType } from "./schema"
 import axios from "axios";
 import CheckoutButton from "./CheckoutButton";
 import { useRouter } from "next/navigation";
+import CartResponse from "./schema";
 
 export default function Page() {
   const router = useRouter()
-  const [cart, setCart] = useState<CartResponseType[] | null>(null);
+  const [cart, setCart] = useState<CartClientResponseType | null>(null);
   const [subtotal, setSubtotal] = useState(0);
 
   const updateCart = (productId: string, newQuantity: number) => {
@@ -28,18 +29,13 @@ export default function Page() {
       try {
         const res = await axios.get("/api/users/cart");
 
-        // Only proceed if the status is 201 (or whatever your API returns for success)
-        if (res.status !== 201) {
-          router.push("/login");
-          return;
-        }
 
-        let cartData = res.data; // no need for await
-        cartData = cartData.filter((item: any) => !item.purchased);
+        const cartResp = res.data; // no need for await
+        let cartData = CartResponse.parse(cartResp)
+        cartData = cartData.filter((item) => !item.purchased);
         setCart(cartData);
-      } catch (err) {
-        // Redirect on any error (e.g., 401 Unauthorized)
-        router.push("/login");
+      } catch {
+        router.push(`/login?from=/cart`);
       }
     };
 

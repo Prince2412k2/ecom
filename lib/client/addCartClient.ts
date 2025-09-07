@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 export async function addToCart(id: string, quantity: number) {
   try {
@@ -15,11 +15,12 @@ export async function addToCart(id: string, quantity: number) {
     );
 
     return res.data; // { msg: "success", cart }
-  } catch (err: any) {
-    if (err.response) {
-      // backend responded with an error
-      console.error("Error:", err.response.data);
-      throw err.response.data;
+  } catch (err) {
+    if (err instanceof AxiosError) {
+      if (err.response) {
+        console.error("Error:", err.response.data);
+        throw err.response.data;
+      }
     } else {
       console.error("Unexpected error:", err);
       throw err;

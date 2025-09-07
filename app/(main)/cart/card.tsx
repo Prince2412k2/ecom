@@ -1,9 +1,9 @@
 import Image from "next/image";
 import AddMoreButton from "./AddMoreButton";
-import type { CartResponseType } from "@/models/cartSchema";
+import { CartClientItemType } from "./schema";
 
 type CardProp = {
-  item: CartResponseType;
+  item: CartClientItemType;
   updateCart: (productId: string, newQuantity: number) => void;
 };
 

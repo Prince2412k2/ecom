@@ -5,6 +5,7 @@ import connect from "@/lib/dbConnect"
 import { hashPassword } from "@/lib/password";
 import { createToken } from "@/lib/jwt"
 import { ZodError } from "zod/v3";
+import { MongoServerError } from "mongodb";
 
 export async function POST(req: NextRequest) {
   try {
@@ -35,15 +36,15 @@ export async function POST(req: NextRequest) {
     return res;
 
   } catch (err) {
-    console.log(err.code)
     if (err instanceof ZodError) {
       return NextResponse.json({ error: err.errors }, { status: 400 })
-    }
-    if (err.code === 11000) {
+    } else if (err instanceof MongoServerError) {
+      if (err.code === 11000) {
 
-      return NextResponse.json({ error: "Email Already Exists" }, { status: 400 })
+        return NextResponse.json({ error: "Email Already Exists" }, { status: 400 })
+      }
+      console.error(err);
+      return NextResponse.json({ error: "server error" }, { status: 500 });
     }
-    console.error(err);
-    return NextResponse.json({ error: "server error" }, { status: 500 });
   }
 }

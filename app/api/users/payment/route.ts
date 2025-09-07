@@ -38,8 +38,10 @@ export async function POST(req: NextRequest) {
     });
 
     return NextResponse.json({ id: session.id }, { status: 200 });
-  } catch (err: any) {
-    console.error("Error creating Stripe session:", err.message || err);
+  } catch (err) {
+    if (err instanceof Error) {
+      console.error("Error creating Stripe session:", err.message || err);
+    }
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }

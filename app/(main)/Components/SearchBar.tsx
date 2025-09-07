@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { FaSearch } from "react-icons/fa";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { SearchResponse, type SearchResponseType } from "@/app/api/products/search/schema";
 import Image from "next/image";
 import Link from "next/link";
@@ -30,9 +30,11 @@ export default function SearchBar() {
 
         const parsed = SearchResponse.parse(res.data.products || []);
         setResults(parsed);
-      } catch (err: any) {
-        if (err.name !== "CanceledError") {
-          console.error("Search error:", err);
+      } catch (err: unknown) {
+        if (err instanceof AxiosError) {
+          if (err.name !== "CanceledError") {
+            console.error("Search error:", err);
+          }
         }
         setResults([]);
       } finally {
@@ -59,7 +61,7 @@ export default function SearchBar() {
   };
 
   return (
-    <div className="w-full max-w-lg lg:max-w-xs relative">
+    <div className="text-black w-full max-w-lg lg:max-w-xs relative">
       <label htmlFor="search" className="sr-only">
         Search
       </label>
@@ -79,7 +81,7 @@ export default function SearchBar() {
         />
       </div>
 
-      {loading && <p className="mt-2 text-sm text-gray-500">Searching...</p>}
+      {loading && <p className="mt-2 text-sm text-gray-700">Searching...</p>}
 
       {results.length > 0 ? (
         <ul className="absolute z-10 w-full mt-2 border border-gray-200 rounded-md bg-white shadow-sm max-h-64 overflow-y-auto">
@@ -100,7 +102,7 @@ export default function SearchBar() {
           ))}
         </ul>
       ) : query && !loading ? (
-        <p className="mt-2 text-sm text-gray-500">No products found</p>
+        <p className="mt-2 text-sm text-gray-700">No products found</p>
       ) : null}
     </div>
   );

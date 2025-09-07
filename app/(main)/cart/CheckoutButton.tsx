@@ -1,12 +1,12 @@
 "use client";
 
-import { CartResponseType } from "@/models/cartSchema";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
+import { CartClientResponseType } from "./schema";
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY!);
 
-export default function CheckoutButton({ cart }: { cart: CartResponseType[] }) {
+export default function CheckoutButton({ cart }: { cart: CartClientResponseType }) {
   console.log(cart)
   const handleCheckout = async () => {
     try {

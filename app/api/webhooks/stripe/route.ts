@@ -19,15 +19,20 @@ export async function POST(req: Request) {
 
     if (event.type === "checkout.session.completed") {
       const session = event.data.object as Stripe.Checkout.Session;
-      const userId = session.metadata.userId;
-      await togglePaid(userId);
+      const userId = session.metadata?.userId;
+      if (userId) {
+        await togglePaid(userId);
+      } else { new Error("userId not found") }
       console.log("💸 Payment successful:", session.id);
     }
 
     return NextResponse.json({ received: true });
-  } catch (err: any) {
-    console.error("Webhook error:", err.message);
-    return NextResponse.json({ error: err.message }, { status: 400 });
+  } catch (err) {
+    if (err instanceof Error) {
+      console.error("Webhook error:", err.message);
+      return NextResponse.json({ error: err.message }, { status: 400 });
+    }
+    return NextResponse.json({ error: "stripe webhook error" }, { status: 400 });
   }
 }
 

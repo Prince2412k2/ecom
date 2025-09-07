@@ -21,6 +21,10 @@ export async function POST(req: NextRequest) {
   }
 
   try {
+    const cart = await getUserWithToken(token)
+    if (!cart) {
+      return NextResponse.json({ msg: "Unauthorized" }, { status: 401 })
+    }
     const body = await req.json()
     const { id, quantity } = AddCartRequest.parse(body)
 
@@ -29,10 +33,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ msg: "Invalid User" }, { status: 404 })
     }
 
-    const cart = await getUserWithToken(token)
-    if (!cart) {
-      return NextResponse.json({ msg: "Unauthorized" }, { status: 401 })
-    }
 
     return NextResponse.json({ msg: "success", cart }, { status: 201 })
   } catch (err) {
