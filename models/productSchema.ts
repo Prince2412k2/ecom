@@ -1,4 +1,4 @@
-import { Schema, model, models, Types } from "mongoose";
+import { Schema, model, models, Types, ObjectId } from "mongoose";
 
 export type ProductType = {
   title: string
@@ -17,6 +17,13 @@ export type ProductType = {
 
 export type ProductResponseType = ProductType & { _id: Types.ObjectId };
 
+export type ProductSearchResult = {
+  _id: ObjectId;
+  title: string;
+  image: string;
+  score: number; // from text search
+}
+
 
 const ProductSchema = new Schema<ProductType>({
   title: { type: String, required: true },
@@ -32,6 +39,17 @@ const ProductSchema = new Schema<ProductType>({
   onSale: { type: Boolean, default: false },
   discount: { type: Number, default: 0 },
 });
+
+
+// Regular index on category for faster filtering 
+ProductSchema.index({ category: 1 });
+
+// Compound index on category + price for sorting/filtering
+ProductSchema.index({ category: 1, price: -1 });
+
+// Text index for keyword search
+ProductSchema.index({ title: "text", brand: "text", category: "text" });
+
 
 export const Product = models.Product || model<ProductType>("Product", ProductSchema);
 

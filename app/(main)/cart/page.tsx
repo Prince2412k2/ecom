@@ -25,7 +25,8 @@ export default function Page() {
     const fetchCart = async () => {
       const res = await axios.get("/api/users/cart");
       console.log(res)
-      const cartData = await res.data;
+      let cartData = await res.data;
+      cartData = cartData.filter((item) => !item.purchased)
       setCart(cartData);
     };
     fetchCart();
@@ -45,7 +46,7 @@ export default function Page() {
     return <div className="h-screen flex items-center justify-center bg-gray-100 text-gray-700">Loading cart...</div>;
   }
 
-  const shipping = 4.99;
+  const shipping = subtotal ? 4.99 : 0;
   const total = subtotal + shipping;
 
   return (
@@ -54,10 +55,10 @@ export default function Page() {
       <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
         <div className="rounded-lg md:w-2/3">
           {cart.map((item, index) => (
-            !item.purchased ? (<div key={index}>
+            <div key={index}>
               <Card item={item} updateCart={updateCart} />
-            </div>) : (<div key={index}></div>)
-          ))}
+            </div>)
+          )}
         </div>
         <div className="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3">
           <div className="mb-2 flex justify-between">

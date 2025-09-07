@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "strip": "stripe listen --forward-to localhost:3000/api/webhooks/stripe",
+    "stripe": "stripe listen --forward-to localhost:3000/api/webhooks/stripe",
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
