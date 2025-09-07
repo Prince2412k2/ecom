@@ -1,6 +1,6 @@
 
 const lastRequestTimestamps = new Map<string, number>();
-const MIN_INTERVAL = 1000; // 1 second
+const MIN_INTERVAL = 500; // 1 second
 
 export function rateLimit(key: string) {
   const now = Date.now();

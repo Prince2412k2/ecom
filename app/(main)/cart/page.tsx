@@ -4,8 +4,10 @@ import Card from "./card";
 import type { CartResponseType } from "@/models/cartSchema";
 import axios from "axios";
 import CheckoutButton from "./CheckoutButton";
+import { useRouter } from "next/navigation";
 
 export default function Page() {
+  const router = useRouter()
   const [cart, setCart] = useState<CartResponseType[] | null>(null);
   const [subtotal, setSubtotal] = useState(0);
 
@@ -23,12 +25,24 @@ export default function Page() {
 
   useEffect(() => {
     const fetchCart = async () => {
-      const res = await axios.get("/api/users/cart");
-      console.log(res)
-      let cartData = await res.data;
-      cartData = cartData.filter((item) => !item.purchased)
-      setCart(cartData);
+      try {
+        const res = await axios.get("/api/users/cart");
+
+        // Only proceed if the status is 201 (or whatever your API returns for success)
+        if (res.status !== 201) {
+          router.push("/login");
+          return;
+        }
+
+        let cartData = res.data; // no need for await
+        cartData = cartData.filter((item: any) => !item.purchased);
+        setCart(cartData);
+      } catch (err) {
+        // Redirect on any error (e.g., 401 Unauthorized)
+        router.push("/login");
+      }
     };
+
     fetchCart();
   }, []);
 
