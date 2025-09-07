@@ -1,5 +1,5 @@
 
-import { getUserWithToken } from "@/lib/cart/getCart"
+import { getUserWithToken } from "@/lib/users/getUsers"
 import { NextRequest, NextResponse } from "next/server"
 
 

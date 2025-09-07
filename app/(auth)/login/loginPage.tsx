@@ -32,7 +32,7 @@ export default function LoginPage() {
       form.reset();
 
       router.push(from || "/products");
-    } catch (err) {
+    } catch {
       setError("Login failed. Please try again.");
     } finally {
       setLoading(false);
@@ -43,7 +43,7 @@ export default function LoginPage() {
     <div className="flex bg-gray-950 h-screen flex-col justify-center pb-60 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <Image
-          src="/shopping-cart.png"
+          src="/shopping-cart.webp"
           alt="Main Logo"
           width={500}
           height={500}

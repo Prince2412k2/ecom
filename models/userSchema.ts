@@ -1,5 +1,5 @@
 import mongoose, { Schema, Document, Types } from "mongoose";
-import { CartItemType, CartSchema } from "./cartSchema";
+import { CartItemType, CartResponseType, CartSchema } from "./cartSchema";
 
 export type UserType = {
   name: string;
@@ -13,6 +13,16 @@ export type DbUserType = Document & UserType & {
   isDeleted: boolean;
   userType: string;
 };
+
+export type UserResponseType = {
+  _id: Types.ObjectId,
+  name: string,
+  email: string,
+  cart: Array<CartResponseType>,
+  addresses: string[];
+  isDeleted: boolean;
+  userType: string;
+}
 
 const UserSchema = new Schema<DbUserType>({
   name: { type: String, required: true },

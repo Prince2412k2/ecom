@@ -54,7 +54,7 @@ export default function SignUp() {
     <div className="flex bg-gray-950 h-screen flex-col align-middle pb-60 justify-center lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <Image
-          src="/shopping-cart.png"
+          src="/shopping-cart.webp"
           alt="Main Logo"
           width={120}
           height={120}

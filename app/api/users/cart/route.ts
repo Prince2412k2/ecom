@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getCartWithToken, getUserWithToken } from "@/lib/cart/getCart"
+import { getUserWithToken } from "@/lib/users/getUsers"
 import AddToCart from '@/lib/cart/addProductToCart';
 import AddCartRequest from './schema';
 import { ZodError } from 'zod/v3';
+import { getCartWithToken } from '@/lib/cart/getCart';
 
 
 export async function GET(req: NextRequest) {
