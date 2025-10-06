@@ -6,10 +6,10 @@ import "@/models/productSchema";
 
 export async function getUserWithToken(token: string): Promise<DbUserType | null> {
   await dbConnect();
-  const id = verifyToken(token);
-  if (!id) return null;
+  const payload = verifyToken(token);
+  if (!payload) return null;
 
-  const user = await User.findById(id)
+  const user = await User.findById(payload.id)
     .populate("cart.product"); // <- populate the 'product' field inside each cart item
 
   if (!user) return null;

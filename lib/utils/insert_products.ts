@@ -7,6 +7,8 @@ dotenv.config()
 const uri = process.env.MONGODB_URI ?? "";
 const rawData = readFileSync("./data.json", "utf-8")
 
+const userId = new Types.ObjectId("68e35a97a4e57202d90efcc3");
+
 export type ProductType = {
   title: string
   image: string;
@@ -20,6 +22,7 @@ export type ProductType = {
   color: string;
   onSale: boolean;
   discount: number;
+  user: Types.ObjectId;
 };
 
 export type ProductResponseType = ProductType & { _id: Types.ObjectId };
@@ -38,6 +41,7 @@ const ProductSchema = new Schema<ProductType>({
   color: { type: String, default: "" },
   onSale: { type: Boolean, default: false },
   discount: { type: Number, default: 0 },
+  user: { type: Schema.Types.ObjectId, ref: "User" },
 });
 
 await mongoose.connect(uri, {});
@@ -50,10 +54,14 @@ const Product = mongoose.models.Product || mongoose.model<ProductType>("Product"
 
 const products: ProductType[] = JSON.parse(rawData);
 
-// 4. Insert into MongoDB
+const productsWithUser = products.map(product => ({
+  ...product,
+  user: userId
+}));
+
 (async () => {
   try {
-    await Product.insertMany(products);
+    await Product.insertMany(productsWithUser);
   } catch (err) {
     console.error("? Error inserting data:", err);
   } finally {

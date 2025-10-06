@@ -15,7 +15,12 @@ export async function POST(req: NextRequest) {
     const { email, password } = LoginRequest.parse(body);
     const user = await validateUser({ password, email })
     if (!user) return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
-    const token = createToken({ id: user._id, type: user.userType, email: user.email });
+    const payload = {
+      id: user._id,
+      type: user.userType,
+      email: user.email,
+    };
+    const token = createToken(payload);
     const res = NextResponse.json({ userType: user.userType }, { status: 200 })
     res.cookies.set("token", token, {
       httpOnly: true,

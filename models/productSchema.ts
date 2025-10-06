@@ -1,5 +1,4 @@
 import { Schema, model, models, Types, ObjectId } from "mongoose";
-
 export type ProductType = {
   title: string
   image: string;
@@ -8,6 +7,9 @@ export type ProductType = {
   category: string;
   quantity: number;
   user: string;
+  addedAt: Date;
+  lastSale?: Date;
+  sold: number;
 
   // optional fields
   model: string;
@@ -33,7 +35,10 @@ const ProductSchema = new Schema<ProductType>({
   brand: { type: String, required: true },
   category: { type: String, required: true },
   quantity: { type: Number, required: true },
-  user: { type: User, required: false },
+  user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+  addedAt: { type: Date, default: Date.now },
+  lastSale: { type: Date },
+  sold: { type: Number, default: 0 },
 
   // optional fields
   model: { type: String, default: "" },

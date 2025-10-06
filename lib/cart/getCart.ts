@@ -8,8 +8,9 @@ export async function getCartWithToken(
   token: string
 ): Promise<CartResponseType[] | null> {
   await dbConnect();
-  const id = verifyToken(token);
-  if (!id) return null;
+  const payload = verifyToken(token);
+  if (!payload) return null;
+  const id = payload.id;
 
   const user = await User.findById(id).populate("cart.product") // populates each cart item's product
   if (!user) return null;

@@ -7,10 +7,13 @@ export function createToken(payload: object) {
 }
 
 export function verifyToken(token: string) {
-  const payload = jwt.verify(token, JWT_SECRET)
-  if (typeof payload === "string") return payload
-  return payload.id
-
+  try {
+    const payload = jwt.verify(token, JWT_SECRET)
+    if (typeof payload === "string") return null;
+    return payload as jwt.JwtPayload & { type: string };
+  } catch (error) {
+    return null;
+  }
 }
 
 

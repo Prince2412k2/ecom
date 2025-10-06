@@ -5,6 +5,7 @@ import { UserResponseType } from "@/models/userSchema";
 import { cookies } from "next/headers";
 import Image from "next/image";
 import { redirect } from "next/navigation";
+import AddressSection from "./AddressSection";
 
 function filterCart(
   user: UserResponseType | null
@@ -20,8 +21,11 @@ const ProfilePage = async () => {
   if (!token) {
     return redirect("/login");
   }
-  const id = verifyToken(token);
-  const user = await getUserWithId(id);
+  const payload = verifyToken(token);
+  if (!payload) {
+    return redirect("/login");
+  }
+  const user = await getUserWithId(payload.id);
   const orders = filterCart(user) ?? [];
 
   if (!user) {
@@ -53,23 +57,13 @@ const ProfilePage = async () => {
           </div>
         </div>
 
+import AddressSection from "./AddressSection";
+
+// ... (keep the existing code)
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-lg shadow-md p-6">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                Addresses
-              </h2>
-              <div className="space-y-4">
-                {user.addresses.map((address, index) => (
-                  <div
-                    key={index}
-                    className="border border-gray-200 p-4 rounded-lg hover:bg-gray-50 transition"
-                  >
-                    <p className="text-gray-700">{address}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <AddressSection initialAddresses={user.addresses} />
           </div>
 
           <div className="lg:col-span-2">

@@ -13,8 +13,9 @@ export async function POST(req: NextRequest) {
     const token = req.cookies.get("token")?.value;
     if (!token) return NextResponse.json({ error: "User not authenticated" }, { status: 401 });
 
-    const userId = verifyToken(token);
-    if (!userId) return NextResponse.json({ error: "Invalid token" }, { status: 401 });
+    const payload = verifyToken(token);
+    if (!payload) return NextResponse.json({ error: "Invalid token" }, { status: 401 });
+    const userId = payload.id;
 
     const body = await req.json();
     if (!body.items || !Array.isArray(body.items) || body.items.length === 0) {

@@ -3,9 +3,11 @@
 import axios, { AxiosError } from "axios";
 import Image from "next/image";
 import { FormEvent, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function SignUp() {
   const formRef = useRef<HTMLFormElement>(null);
+  const router = useRouter();
 
   // UI feedback state
   const [loading, setLoading] = useState(false);
@@ -35,7 +37,7 @@ export default function SignUp() {
         setSuccess("Account created! Redirecting...");
         form.reset();
         // optionally redirect after a delay
-        // router.push("/dashboard");
+        router.push("/");
       }
     } catch (err: unknown) {
       if (err instanceof AxiosError) {
