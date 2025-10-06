@@ -7,6 +7,7 @@ export type ProductType = {
   brand: string;
   category: string;
   quantity: number;
+  user: string;
 
   // optional fields
   model: string;
@@ -32,6 +33,7 @@ const ProductSchema = new Schema<ProductType>({
   brand: { type: String, required: true },
   category: { type: String, required: true },
   quantity: { type: Number, required: true },
+  user: { type: User, required: false },
 
   // optional fields
   model: { type: String, default: "" },

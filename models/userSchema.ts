@@ -11,7 +11,7 @@ export type DbUserType = Document & UserType & {
   cart: Types.DocumentArray<CartItemType>;
   addresses: string[];
   isDeleted: boolean;
-  userType: string;
+  userType: "Customer" | "Admin" | "Super";
 };
 
 export type UserResponseType = {
@@ -21,7 +21,7 @@ export type UserResponseType = {
   cart: Array<CartResponseType>,
   addresses: string[];
   isDeleted: boolean;
-  userType: string;
+  userType: "Customer" | "Admin" | "Super";
 }
 
 const UserSchema = new Schema<DbUserType>({
@@ -30,7 +30,7 @@ const UserSchema = new Schema<DbUserType>({
   email: { type: String, unique: true, required: true },
   cart: { type: [CartSchema], default: [] },
   addresses: { type: [{ type: String, required: false }], default: [] },
-  userType: { type: String, default: "Customer" },
+  userType: { type: String, enum: ["Customer", "Admin", "Super"], default: "Customer" },
   isDeleted: { type: Boolean, required: true, default: false }
 })
 
