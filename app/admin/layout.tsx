@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { FiHome, FiUsers, FiBox } from "react-icons/fi";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Profile from "./Components/Profile";
 
 interface User {
   userType: string;
@@ -56,7 +57,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <header className="flex items-center justify-between p-6 bg-white border-b">
           <div></div>
           <div className="flex items-center">
-            <div className="w-10 h-10 bg-gray-300 rounded-full"></div>
+            <Profile />
           </div>
         </header>
         <main className="flex-1 p-8 overflow-y-auto">{children}</main>

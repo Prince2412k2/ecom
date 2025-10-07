@@ -50,7 +50,7 @@ export async function GET(req: NextRequest) {
         }
       }
     }
-    totalCustomers = NaN; // Not applicable for Admin
+    totalCustomers = allUsers.length;
   }
 
   return NextResponse.json({

@@ -3,6 +3,25 @@ import { getUserWithToken } from '@/lib/users/getUsers';
 import { Product } from '@/models/productSchema';
 import dbConnect from '@/lib/dbConnect';
 
+export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
+  await dbConnect();
+  const token = req.cookies.get("token")?.value;
+  if (!token) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
+  const user = await getUserWithToken(token);
+  if (!user) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  const product = await Product.findById(params.id);
+
+  if (!product) {
+    return NextResponse.json({ error: "Product not found" }, { status: 404 });
+  }
+
+  return NextResponse.json(product);
+}
+
 export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
   await dbConnect();
   const token = req.cookies.get("token")?.value;

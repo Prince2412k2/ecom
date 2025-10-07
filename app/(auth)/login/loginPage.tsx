@@ -31,7 +31,7 @@ export default function LoginPage() {
       await axios.post("/api/users/login", data);
       form.reset();
 
-      router.push(from || "/products");
+      router.push("/");
     } catch {
       setError("Login failed. Please try again.");
     } finally {
