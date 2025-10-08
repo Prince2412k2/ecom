@@ -29,8 +29,7 @@ export default function Page() {
       try {
         const res = await axios.get("/api/users/cart", { withCredentials: true });
         const cartResp = res.data;
-        let cartData = CartResponse.parse(cartResp)
-        cartData = cartData.filter((item) => !item.purchased);
+        const cartData = CartResponse.parse(cartResp)
         setCart(cartData);
       } catch (err) {
         if (axios.isAxiosError(err) && err.response?.status === 401) {
