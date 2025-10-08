@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { verifyToken } from "@/lib/jwt"
 import { getProducts } from "@/lib/products/getAllProducts"
 import { getUserWithToken } from '@/lib/users/getUsers';
 import { Product } from '@/models/productSchema';

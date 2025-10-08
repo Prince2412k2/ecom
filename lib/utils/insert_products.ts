@@ -1,4 +1,4 @@
-import mongoose, { Types, ObjectId, Schema } from "mongoose";
+import mongoose, { Types, Schema } from "mongoose";
 import dotenv from "dotenv";
 import { readFileSync } from 'fs';
 

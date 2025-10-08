@@ -11,7 +11,7 @@ export function verifyToken(token: string) {
     const payload = jwt.verify(token, JWT_SECRET)
     if (typeof payload === "string") return null;
     return payload as jwt.JwtPayload & { type: string };
-  } catch (error) {
+  } catch {
     return null;
   }
 }

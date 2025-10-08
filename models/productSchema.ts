@@ -1,4 +1,4 @@
-import { Schema, model, models, Types, ObjectId } from "mongoose";
+import { Schema, model, models, Types } from "mongoose";
 export type ProductType = {
   title: string
   image: string;
@@ -6,7 +6,7 @@ export type ProductType = {
   brand: string;
   category: string;
   quantity: number;
-  user: string;
+  user: Types.ObjectId;
   addedAt: Date;
   lastSale?: Date;
   sold: number;
@@ -21,7 +21,7 @@ export type ProductType = {
 export type ProductResponseType = ProductType & { _id: Types.ObjectId };
 
 export type ProductSearchResult = {
-  _id: ObjectId;
+  _id: Types.ObjectId;
   title: string;
   image: string;
   score: number; // from text search

@@ -1,20 +1,21 @@
 // admin-create.ts
-const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");
-const readline = require("readline");
-require("dotenv").config();
+import mongoose from "mongoose";
+import bcrypt from "bcryptjs";
+import readline from "readline";
+import dotenv from "dotenv";
+dotenv.config();
 
-const User = require("./models/userSchema"); // keep your schema as-is
-const CartSchema = require("./models/cartSchema"); // just require so it loads
+import User from "./models/userSchema";
+import "./models/cartSchema";
 
-function askQuestion(query: string) {
+function askQuestion(query: string): Promise<string> {
   const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
   return new Promise((resolve) => rl.question(query, (ans) => { rl.close(); resolve(ans.trim()); }));
 }
 
 (async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI);
+    await mongoose.connect(process.env.MONGO_URI!);
     console.log("Connected to MongoDB");
 
     const name = await askQuestion("Enter admin name: ");
@@ -22,7 +23,10 @@ function askQuestion(query: string) {
     const password = await askQuestion("Enter admin password: ");
 
     const existing = await User.findOne({ email });
-    if (existing) return console.log("Admin already exists.");
+    if (existing) {
+      console.log("Admin already exists.");
+      return;
+    }
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -35,3 +39,5 @@ function askQuestion(query: string) {
     await mongoose.disconnect();
   }
 })();
+
+export {};

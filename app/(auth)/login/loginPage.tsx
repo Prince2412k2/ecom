@@ -1,14 +1,12 @@
 "use client";
 
 import { FormEvent, useRef, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import axios from "axios";
 import Image from "next/image";
 
 export default function LoginPage() {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const from = searchParams.get("from");
 
   const formRef = useRef<HTMLFormElement>(null);
   const [error, setError] = useState<string | null>(null);

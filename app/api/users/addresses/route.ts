@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getUserWithToken } from "@/lib/users/getUsers";
-import User from "@/models/userSchema";
 
 export async function POST(req: NextRequest) {
   const token = req.cookies.get("token")?.value;
