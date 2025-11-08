@@ -1,4 +1,4 @@
-[Live!](https://prince2412k2.github.io/static_site_gen/)
+[Live!](https://ecom-sand-omega.vercel.app/login)
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
